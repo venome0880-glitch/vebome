@@ -32,8 +32,8 @@ const projects = [
     blurb:
       "A sleek dex-style lookup interface — fast search, clean typography, and a UI tuned for quick scanning.",
     stack: ["React", "TypeScript", "Tailwind"],
-    href: "https://github.com/venome0880-glitch/vebome",
-    cta: "View on GitHub",
+    href: "https://venome.dpdns.org/",
+    cta: "Visit Site",
     featured: true,
   },
   {

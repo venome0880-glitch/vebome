@@ -37,22 +37,22 @@ const projects = [
     featured: true,
   },
   {
-    name: "venome.dev",
+    name: "VENOME",
     status: "live" as const,
     blurb:
       "My personal corner of the web — a home for notes, work, and experiments with glassy surfaces and subtle motion.",
     stack: ["Vite", "React", "Motion"],
-    href: "https://ayliee.dev",
+    href: "/",
     cta: "View Website",
     featured: false,
   },
 ];
 
 const stats = [
-  { value: "3.5+", label: "Years Exp." },
-  { value: "20", label: "Years Old" },
-  { value: "10+", label: "Projects" },
-  { value: "30", label: "Clients" },
+  { value: "1+", label: "Years Exp." },
+  { value: "16", label: "Years Old" },
+  { value: "3+", label: "Projects" },
+  { value: "8+", label: "Clients" },
 ];
 
 const stack = [
@@ -72,7 +72,7 @@ const Index = () => {
       {/* HERO */}
       <section className="relative flex min-h-screen items-center justify-center px-6 pt-28">
         <Constellation />
-        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center animate-fade-up">
+        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center motion-enter-blur">
           <div className="mb-8">
             <DiscordProfile userId="1508400186622218250" />
           </div>
@@ -91,7 +91,7 @@ const Index = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button asChild size="lg" className="rounded-full bg-foreground text-background hover:bg-foreground/90">
+            <Button asChild size="lg" className="motion-pop rounded-full bg-foreground text-background hover:bg-foreground/90">
               <a href="#work">
                 See selected work <ArrowUpRight className="ml-1 h-4 w-4" />
               </a>
@@ -137,10 +137,11 @@ const Index = () => {
 
           {/* Stats grid */}
           <div className="grid grid-cols-2 gap-4">
-            {stats.map((s) => (
+            {stats.map((s, index) => (
               <div
                 key={s.label}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card/50 p-6 transition-all hover:border-accent/40 hover:shadow-[0_0_60px_-25px_hsl(var(--accent)/0.8)] md:p-8"
+                style={{ animationDelay: `${index * 90}ms` }}
+                className="motion-enter-scale group relative overflow-hidden rounded-2xl border border-border bg-card/50 p-6 transition-all hover:border-accent/40 hover:shadow-[0_0_60px_-25px_hsl(var(--accent)/0.8)] md:p-8"
               >
                 <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-accent/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="relative">
@@ -164,13 +165,14 @@ const Index = () => {
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {projects.map((p) => (
+          {projects.map((p, index) => (
             <a
               key={p.name}
               href={p.href}
               target="_blank"
               rel="noreferrer noopener"
-              className={`group relative overflow-hidden rounded-2xl border bg-card/50 p-8 transition-all hover:bg-card ${
+              style={{ animationDelay: `${index * 110}ms` }}
+              className={`motion-enter-down group relative overflow-hidden rounded-2xl border bg-card/50 p-8 transition-all hover:bg-card ${
                 p.featured
                   ? "border-accent/40 shadow-[0_0_60px_-25px_hsl(var(--accent)/0.8)]"
                   : "border-border"
@@ -225,10 +227,11 @@ const Index = () => {
         </h2>
 
         <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3">
-          {stack.map(({ icon: Icon, label, note }) => (
+          {stack.map(({ icon: Icon, label, note }, index) => (
             <div
               key={label}
-              className="group flex items-center gap-4 rounded-xl border border-border bg-card/40 p-5 transition-colors"
+              style={{ animationDelay: `${index * 75}ms` }}
+              className={`group flex items-center gap-4 rounded-xl border border-border bg-card/40 p-5 transition-colors ${index % 2 === 0 ? "motion-enter-left" : "motion-enter-right"}`}
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-accent">
                 <Icon className="h-5 w-5" />

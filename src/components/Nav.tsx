@@ -11,8 +11,8 @@ const Nav = () => {
     <header className="fixed left-1/2 top-4 z-50 -translate-x-1/2 px-4">
       <nav className="glass flex items-center gap-3 rounded-full px-3 py-2 shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
         <a href="#top" className="flex items-center gap-2 rounded-full bg-secondary px-3 py-1.5 font-mono text-sm font-semibold">
-          <Code2 className="h-4 w-4 text-accent" />
-          <span className="tracking-widest">AYLE</span>
+          <Code2 className="motion-glow h-4 w-4 text-accent" />
+          <span className="tracking-widest">VENOME</span>
         </a>
         <ul className="hidden items-center gap-1 px-2 font-mono text-sm text-muted-foreground md:flex">
           {links.map((l) => (
@@ -25,8 +25,8 @@ const Nav = () => {
         </ul>
         <div className="hidden items-center gap-2 rounded-full bg-secondary px-3 py-1.5 font-mono text-xs text-muted-foreground sm:flex">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-pulse-glow rounded-full bg-emerald-400/70" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            <span className="absolute inline-flex h-full w-full animate-pulse-glow rounded-full bg-sky-400/70" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-sky-400" />
           </span>
           available
         </div>

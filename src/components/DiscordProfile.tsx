@@ -32,10 +32,8 @@ export default function DiscordProfile({
         const json = await res.json();
         if (!json.success) throw new Error(json?.error?.message || "Not tracked");
         if (!cancelled) setData(json.data as LanyardData);
-      } catch (error: unknown) {
-        if (!cancelled) {
-          setErr(error instanceof Error ? error.message : "Failed to load profile");
-        }
+      } catch (e: any) {
+        if (!cancelled) setErr(e?.message ?? "Failed to load profile");
       }
     };
 
@@ -62,14 +60,14 @@ export default function DiscordProfile({
     : null;
 
   const statusColor: Record<string, string> = {
-    online: "bg-sky-400",
-    idle: "bg-cyan-300",
-    dnd: "bg-blue-700",
-    offline: "bg-slate-500",
+    online: "bg-emerald-400",
+    idle: "bg-amber-400",
+    dnd: "bg-rose-500",
+    offline: "bg-zinc-500",
   };
 
   return (
-    <div className="relative motion-float-delayed">
+    <div className="relative animate-float">
       {/* aura */}
       <div className="absolute inset-0 -z-10 blur-3xl">
         <div className="mx-auto h-full w-full rounded-full bg-brand opacity-40" />
